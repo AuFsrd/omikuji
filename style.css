@@ -10,12 +10,11 @@
 /* Fond d'écran */
 
 body {
-  height: 100%;
-  width: 100%;
   z-index: -1;
   background: no-repeat center url('bg.webp');
   background-size: cover;
   background-color: #fef7f2;
+  background-attachment: fixed;
 }
 
 .bg::before {
