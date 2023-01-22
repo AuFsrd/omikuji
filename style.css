@@ -7,13 +7,14 @@
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.bg {
-  height: 100vh;
+/* Fond d'écran */
+
+body {
+  height: 100%;
   width: 100%;
   z-index: -1;
-  position: fixed;
   background: no-repeat center url('bg.webp');
-  background-size: contain;
+  background-size: cover;
   background-color: #fef7f2;
 }
 
@@ -29,6 +30,7 @@
   background-color: rgba(255, 255, 255, .3);
 }
 
+/* Zone Omikuji - Boîte */
 .container {
   width: 260px;
   height: 300px;
@@ -50,82 +52,8 @@
   animation: spin 1.5s ease-in-out;
 }
 
-.stickdown {
-  animation: down 2s cubic-bezier(.69,.84,.97,-0.14);
-
-}
-
-@keyframes spin {
-  0% {transform: rotateZ(0deg) rotateX(-90deg);}
-  10% {transform: rotateZ(4deg) rotateX(-92deg);}
-  20% {transform: rotateZ(-6deg) rotateX(-87deg);}
-  30% {transform: rotateZ(5deg) rotateX(-91deg);}
-  40% {transform: rotateZ(-7deg) rotateX(-85deg);}
-  50% {transform: rotateZ(3deg) rotateX(-93deg);}
-  60% {transform: rotateZ(-4deg) rotateX(-84deg);}
-  70% {transform: rotateZ(3deg) rotateX(-92deg);}
-  80% {transform: rotateZ(-2deg) rotateX(-88deg);}
-  90% {transform: rotateZ(1deg) rotateX(-91deg);}
-  100% {transform: rotateZ(0deg) rotateX(-90deg);}
-}
-
-@keyframes down {
-  0% {transform: rotateX(90deg) translateX(40px) translateY(100px)}
-  5% {transform: rotateX(90deg) translateX(40px) translateY(0px)}
-  45% {transform: rotateX(90deg) translateX(40px) translateY(0px)}
-  100% {transform: rotateX(90deg) translateX(40px) translateY(100px)}
-}
-
 .face {
   position: absolute;
-}
-
-.stick {
-  position :relative;
-  height: 300px;
-  width: 15px;
-  transform: rotateX(90deg) translateY(100px) translateX(40px);
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
-  border: solid 1px #33110f;
-  border-radius: 5px;
-  border-bottom: solid 10px #20080f;
-  
-  background-image: url("texture.jpg");
-}
-
-.hang {
-  animation: hang 7s infinite linear;
-}
-
-@keyframes hang {
-  0% {rotate: y 0deg;}
-  25% {rotate: y .9deg;}
-  30% {rotate: y 1deg;}
-  35% {rotate: y .9deg;}
-  65% {rotate: y -.9deg;}
-  70% {rotate: y -1deg;}
-  75% {rotate: y -.9deg;}
-}
-
-.stripe {
-  background-color: #cc9977;
-  height: 5px;
-  margin-bottom: 7px;
-}
-
-.male {
-  background-color: #20080f;
-}
-
-.bene {
-  background-color: #cc2103;
-}
-
-.stripe:last-child {
-  margin-bottom: 23px;
 }
 
 .end {
@@ -195,6 +123,82 @@
 .frt-l {
   transform: rotateX(90deg) rotateY(60deg) translateZ(86.60254px);
 }
+
+@keyframes spin {
+  0% {transform: rotateZ(0deg) rotateX(-90deg);}
+  10% {transform: rotateZ(4deg) rotateX(-92deg);}
+  20% {transform: rotateZ(-6deg) rotateX(-87deg);}
+  30% {transform: rotateZ(5deg) rotateX(-91deg);}
+  40% {transform: rotateZ(-7deg) rotateX(-85deg);}
+  50% {transform: rotateZ(3deg) rotateX(-93deg);}
+  60% {transform: rotateZ(-4deg) rotateX(-84deg);}
+  70% {transform: rotateZ(3deg) rotateX(-92deg);}
+  80% {transform: rotateZ(-2deg) rotateX(-88deg);}
+  90% {transform: rotateZ(1deg) rotateX(-91deg);}
+  100% {transform: rotateZ(0deg) rotateX(-90deg);}
+}
+
+@keyframes down {
+  0% {transform: rotateX(90deg) translateX(40px) translateY(100px)}
+  5% {transform: rotateX(90deg) translateX(40px) translateY(0px)}
+  45% {transform: rotateX(90deg) translateX(40px) translateY(0px)}
+  100% {transform: rotateX(90deg) translateX(40px) translateY(100px)}
+}
+
+/* Zone Omikuji - Bâton */
+.stick {
+  position :relative;
+  height: 300px;
+  width: 15px;
+  transform: rotateX(90deg) translateY(100px) translateX(40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  border: solid 1px #33110f;
+  border-radius: 5px;
+  border-bottom: solid 10px #20080f;
+  
+  background-image: url("texture.jpg");
+}
+
+.hang {
+  animation: hang 7s infinite linear;
+}
+
+.stickdown {
+  animation: down 2s cubic-bezier(.69,.84,.97,-0.14)
+}
+
+.stripe {
+  background-color: #cc9977;
+  height: 5px;
+  margin-bottom: 7px;
+}
+
+.stripe:last-child {
+  margin-bottom: 23px;
+}
+
+.male {
+  background-color: #20080f;
+}
+
+.bene {
+  background-color: #cc2103;
+}
+
+@keyframes hang {
+  0% {rotate: y 0deg;}
+  25% {rotate: y .9deg;}
+  30% {rotate: y 1deg;}
+  35% {rotate: y .9deg;}
+  65% {rotate: y -.9deg;}
+  70% {rotate: y -1deg;}
+  75% {rotate: y -.9deg;}
+}
+
+/* Zone d'affichage du résultat */
 
 .tirage, .tirage div {
   display: flex;

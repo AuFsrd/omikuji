@@ -1,26 +1,23 @@
-const tirageDiv = document.querySelector(".tirage")
-const tirageBtn = document.querySelector("button")
+// Définition des variables
 const omikuji = document.querySelector(".omikuji")
+
 const stick = document.querySelector(".stick")
-const result = document.querySelector(".result")
-const resultText = document.querySelector(".result-text")
 const s1 = document.getElementById("s1")
 const s2 = document.getElementById("s2")
 const s3 = document.getElementById("s3")
 const s4 = document.getElementById("s4")
+
+const tirageDiv = document.querySelector(".tirage")
+const tirageBtn = document.querySelector("button")
+const result = document.querySelector(".result")
+const resultText = document.querySelector(".result-text")
 const scroll = document.querySelector(".scroll")
 
+let tirageDone = true;
+
+// Déclenchement du tirage et animation
 tirageBtn.addEventListener("click", shake)
 omikuji.addEventListener("click", shake)
-
-function randomNb(min, max) {
-  const UintArray = new Uint32Array(1)
-  crypto.getRandomValues(UintArray)
-  let nb = UintArray[0] / 4294967296
-  return Math.floor(nb * (max - min + 1)) + min
-}
-
-let tirageDone = true;
 
 function shake() {
   if (!tirageDone) {
@@ -41,6 +38,14 @@ function shake() {
   setTimeout(tirage, 2000)
 }
 
+// Tirage au sort
+function randomNb(min, max) {
+  const UintArray = new Uint32Array(1)
+  crypto.getRandomValues(UintArray)
+  let nb = UintArray[0] / 4294967296
+  return Math.floor(nb * (max - min + 1)) + min
+}
+
 function tirage() {
   tirageResult = randomNb(-1, 1)+randomNb(-1, 1)+randomNb(-1, 1)+randomNb(-1, 1)
   result.innerText = tirageResult
@@ -54,6 +59,7 @@ function tirage() {
   tirageDone = true;
 }
 
+// Affichage du résultat, des textes et effets correspondants
 function resultGen (result) {
   switch (result) {
     case -4:
@@ -96,7 +102,3 @@ function resultGen (result) {
       return '<p class="kanji">大吉</p><p class="outcome">Grande bénédiction</p>'
   }
 }
-
-
-// TO DO
-// - Afficher le bon nombre de rayures
